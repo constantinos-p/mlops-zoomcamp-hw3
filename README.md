@@ -1,3 +1,6 @@
+# My changes
+Look into homework3 folder and the changes at the docker-compose.yaml
+
 # Setup
 
 1. Clone repo:
