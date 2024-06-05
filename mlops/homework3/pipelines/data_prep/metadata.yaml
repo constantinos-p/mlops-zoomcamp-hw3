@@ -1,0 +1,99 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: homework3/data_loaders/ingest_taxi_data.py
+  downstream_blocks:
+  - categorical
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: ingest_taxi_data
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: ingest_taxi_data
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: homework3/transformers/categorical.py
+  downstream_blocks:
+  - train
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: categorical
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - ingest_taxi_data
+  uuid: categorical
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: homework3/transformers/train.py
+  downstream_blocks:
+  - logger
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: train
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - categorical
+  uuid: train
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: homework3/transformers/logger.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: logger
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - train
+  uuid: logger
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-06-05 14:37:29.464189+00:00'
+data_integration: null
+description: Preparing data for homework 3
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: data_prep
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+uuid: data_prep
+variables_dir: /home/src/mage_data/homework3
+widgets: []
